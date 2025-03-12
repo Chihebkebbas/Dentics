@@ -30,7 +30,7 @@ dentics/
 │── model/           # Classes et connexion BDD  
 │── templates/       # Vues principales  
 │── index.php        # Page d'accueil  
-
+```
 ## 🛠️ Technologies utilisées  
 - HTML, CSS, JavaScript  
 - PHP
