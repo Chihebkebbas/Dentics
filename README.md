@@ -16,15 +16,20 @@ Dentics est un site web permettant aux patients de prendre des rendez-vous en li
 - Gestion des disponibilités  
 
 ## 📂 Structure du projet  
-
-📂 - dentics
-│── 📂 - admin # Partie admin
-│── 📂 - control # Traitement des actions
-│── 📂 - css # Styles CSS
-│── 📂 - images # Images utilisées
-│── 📂 - model # Classes et connexion BDD
-│── 📂 - templates # Vues principales
-│── - index.php # Page d'accueil
+```md
+dentics/  
+│── admin/           # Partie admin  
+│   ├── control/     # Actions administrateur  
+│   ├── css/         # Styles CSS admin  
+│   ├── model/       # Modèles de données  
+│   ├── templates/   # Vues admin  
+│  
+│── control/         # Traitement des actions  
+│── css/             # Styles CSS du site  
+│── images/          # Images utilisées  
+│── model/           # Classes et connexion BDD  
+│── templates/       # Vues principales  
+│── index.php        # Page d'accueil  
 
 ## 🛠️ Technologies utilisées  
 - HTML, CSS, JavaScript  
