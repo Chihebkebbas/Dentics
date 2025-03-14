@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendre un RDV</title>
+    <link rel="stylesheet" href="css/rdv.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div>
+            <img src="images/logo.svg" alt="Logo" class="logo">
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-btn">
+            <img src="images/avatar.svg" alt="avatar">
+            <a href="#Réservez" class="btn">Réservez</a>
+        </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <section class="main">
+        <!-- FORMULAIRE -->
+        <div class="appointment-form">
+            <h1>Prendre un RDV</h1>
+            <p>Planifiez votre consultation en quelques clics</p>
+            <form>
+                <div class="input-group">
+                    <img src="images/icon-nom-signup.png" alt="Nom">
+                    <input type="text" placeholder="Nom et prénom" required>
+                </div>
+
+                <div class="input-group">
+                    <img src="images/icon-mail-login.png" alt="Email">
+                    <input type="email" placeholder="Adresse Email" required>
+                </div>
+
+                <div class="input-group">
+                    <img src="images/mdi_phone.svg" alt="Téléphone">
+                    <input type="tel" placeholder="Téléphone" required>
+                </div>
+
+                <div class="input-group select-group">
+                  <img src="images/icon-teeth.svg" alt="Dentiste">
+                  <select required>
+                      <option value="" disabled selected>Choisissez un dentiste</option>
+                      <option value="dentist1">Dr. Dupont</option>
+                      <option value="dentist2">Dr. Martin</option>
+                      <option value="dentist3">Dr. Lefevre</option>
+                  </select>
+                  <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche">
+              </div>
+              
+              <div class="date-time-container">
+                  <div class="input-group">
+                      <img src="images/icon-calendar.svg" alt="Calendrier">
+                      <input type="date" required>
+                      <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche">
+                  </div>
+              
+                  <div class="input-group">
+                      <img src="images/icon-alarm.svg" alt="Horloge">
+                      <input type="time" required>
+                      <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche">
+                  </div>
+              </div>
+              
+
+                <button type="submit" class="btn">Prendre un rendez-vous</button>
+            </form>
+        </div>
+
+        <!-- IMAGE ILLUSTRATIVE -->
+        <div class="main-photo">
+            <img src="images/rdv.png" alt="Illustration RDV">
+        </div>
+    </section>
+
+</body>
+</html>

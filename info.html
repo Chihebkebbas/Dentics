@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations Personnelles</title>
+    <link rel="stylesheet" href="css/info.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div>
+            <img src="images/logo.svg" alt="Logo" class="logo">
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-btn">
+            <img src="images/avatar.svg" alt="avatar">
+            <a href="#Réservez" class="btn">Réservez</a>
+        </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <section class="main">
+        <!-- TITRE -->
+        <h1 class="page-title">Informations Personnelles</h1>
+        
+        <!-- CONTENU PRINCIPAL -->
+        <div class="content-container">
+            <!-- FORMULAIRE INFO PERSO -->
+            <div class="info-form">
+                <form>
+                    <div class="form-group">
+                        <label for="full-name">Nom et prénom</label>
+                        <div class="input-group">
+                            <img src="images/icon-nom-signup.png" alt="Profil">
+                            <input type="text" id="full-name" value="Lucas Martin">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse Email</label>
+                        <div class="input-group">
+                            <img src="images/icon-mail-login.png" alt="Email">
+                            <input type="email" id="email" value="lucas@exemple.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Mot de Passe</label>
+                        <div class="input-group password-group">
+                            <img src="images/icon-password-login.png" alt="Mot de passe">
+                            <input type="password" id="password" value="********">
+                            <img src="images/icon-eye.svg" class="eye-icon" onclick="togglePassword()" alt="Voir">
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <!-- PHOTO DE PROFIL & BOUTON ENREGISTRER -->
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="images/profileee.png" alt="Photo de Profil">
+                </div>
+                <a href="#" class="edit-photo">Modifier la photo</a>
+                <button type="submit" class="btn">Enregistrer</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DÉCONNEXION -->
+    <div class="logout">
+        <img src="images/logout.svg" alt="Déconnexion">
+        <a href="#">Déconnexion</a>
+    </div>
+
+    <script>
+        function togglePassword() {
+            let passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
