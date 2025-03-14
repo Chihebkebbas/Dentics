@@ -1,0 +1,204 @@
+:root {
+  --primary-bleu: #1376F8;
+  --secondary-bleu: #E6F6FE;
+  --dark-bleu: #011632;
+  --text-body-color: #3C4959;
+  --neutre: #B8B8B8;
+  --hover-bleu: #0F5BB5;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  background-color: var(--secondary-bleu);
+  border-radius: 10px;
+  padding-left: 46px;
+  padding-right: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 46px 80px 0 80px;
+  height: 87px;
+}
+
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.header-nav ul li a {
+  font-size: 16px;
+  color: var(--dark-bleu);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+  color: var(--hover-bleu);
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn {
+  background-color: var(--primary-bleu);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 12px 48px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* MAIN SECTION */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  gap: 125px;
+  margin-top: 35px;
+  padding: 0;
+  margin-left: 88px;
+}
+
+.main-photo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0px 0px 0px;
+}
+
+.appointment-form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.appointment-form h1 {
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--dark-bleu);
+  margin-bottom: 12px;
+}
+
+.appointment-form p {
+  font-size: 16px;
+  color: var(--text-body-color);
+  margin-bottom: 46px;
+  width: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.input-group {
+  background-color: white;
+  border: 1px solid var(--neutre);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding-left: 24px;
+  padding-right: 24px;
+  gap: 12px;
+  position: relative;
+}
+
+.input-group img {
+  width: 24px;
+}
+
+input, select {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-body-color);
+  flex: 1;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 40px;
+}
+
+.input-group .custom-icon {
+  position: absolute;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.date-time-container {
+  display: flex;
+  gap: 20px;
+}
+
+.date-time-container .input-group {
+  width: 50%;
+}
+
+.select-group .custom-icon,
+.date-time-container .input-group .custom-icon {
+  position: absolute;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+/* Supprime l'icône par défaut tout en laissant le sélecteur actif */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0; /* Rend l'icône invisible sans la désactiver */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer; /* Permet d'ouvrir le sélecteur au clic */
+}
+
+
+
+button.btn {
+  width: 100%;
+  height: 56px;
+  background: var(--primary-bleu);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: none;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button.btn:hover {
+  background: var(--hover-bleu);
+}

@@ -1,0 +1,196 @@
+:root {
+    --primary-bleu: #1376F8;
+    --secondary-bleu: #E6F6FE;
+    --dark-bleu: #011632;
+    --text-body-color: #3C4959;
+    --neutre: #B8B8B8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 46px;
+}
+
+header {
+    background-color: var(--secondary-bleu);
+    border-radius: 10px;
+    padding-left: 46px;
+    padding-right: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 46px;
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 87px;
+}
+
+.sign-up {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-bleu);
+    margin-right: 48px;
+}
+
+.login {
+    background-color: var(--primary-bleu);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 12px 48px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    height: 100vh; /* Hauteur totale de la page */
+    gap: 125px;
+    margin-top: 35px;
+}
+
+.main-photo {
+    width: 50%; /* La moitié de l'écran */
+    height: 100%;
+}
+
+.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour que l'image remplisse bien l'espace */
+    border-radius: 10px 0px 0px 0px;
+}
+
+.signup-forum {
+    width: 35%; /* La moitié de l'écran pour le formulaire */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+}
+
+.signup-forum h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--dark-bleu);
+    margin-bottom: 12px;
+}
+
+.signup-forum p {
+    font-size: 16px;
+    color: var(--text-body-color);
+    margin-bottom: 46px;
+    width: 80%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.email-label, .password-label {
+    background-color: white;
+    border: 1px solid var(--neutre);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 12px;
+}
+
+.email-label img, .password-label img {
+    width: 24px; /* Taille des icônes */
+}
+
+input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--neutre);
+    flex: 1;
+}
+
+a {
+    color: var(--text-body-color);
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    text-align: end;
+    flex: 1;
+}
+
+button.btn {
+    width: 100%;
+    height: 56px;
+    background: var(--primary-bleu);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: none;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+p:last-child {
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-body-color);
+    text-align: center;
+}
+
+p:last-child a {
+    color: var(--dark-bleu);
+    text-decoration: underline;
+}
+
+.check {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    gap: 10px; /* Espacement entre le checkbox et le texte */
+}
+
+.check input[type="checkbox"] {
+    max-width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 1px solid var(--text-body-color);
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Ajoute une coche quand c'est coché */
+.check input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 16px;
+    color: var(--text-body-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.check label {
+    font-size: 14px;
+    color: var(--text-body-color);
+    cursor: pointer;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    text-decoration: underline;
+}
