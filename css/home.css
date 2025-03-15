@@ -485,3 +485,157 @@ footer p {
         transform: translateX(0);
     }
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    body {
+        margin: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header-btn {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-btn {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cards {
+        padding: 20px;
+    }
+
+    .bien-etre {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .bien-etre div:first-child {
+        width: 100%;
+    }
+
+    .qualités {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .qualités div:first-child {
+        width: 100%;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .contact > div {
+        max-width: 100%;
+    }
+
+    .contact-cards .email-card, 
+    .contact-cards .phone-card {
+        width: 100%;
+    }
+
+    form {
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    .services-explore {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .services-explore div:first-child {
+        width: 100%;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .header-nav ul {
+        gap: 10px;
+    }
+
+    .header-btn {
+        gap: 5px;
+    }
+
+    .hero {
+        padding: 10px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .hero-btn {
+        gap: 5px;
+    }
+
+    .cards {
+        padding: 10px;
+    }
+
+    .bien-etre {
+        padding: 10px;
+    }
+
+    .qualités {
+        padding: 10px;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    .services-explore {
+        padding: 10px;
+    }
+}
