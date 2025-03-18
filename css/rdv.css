@@ -1,3 +1,6 @@
+/* ----------------------------
+   Variables globales
+---------------------------- */
 :root {
   --primary-bleu: #1376F8;
   --secondary-bleu: #E6F6FE;
@@ -7,32 +10,69 @@
   --hover-bleu: #0F5BB5;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
+/* ----------------------------
+   RESET / BASE
+---------------------------- */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* HEADER */
-header {
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 46px 80px;
+  margin-bottom: 0px;
+  overflow-x: hidden;
+  color: var(--text-body-color);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----------------------------
+   HEADER
+---------------------------- */
+.header {
   background-color: var(--secondary-bleu);
   border-radius: 10px;
-  padding-left: 46px;
-  padding-right: 46px;
+  padding: 0 46px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 46px 80px 0 80px;
+  margin-top: 46px;
   height: 87px;
+  position: relative;
+  /* pour le menu mobile absolu */
 }
 
-.header-nav ul {
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  vertical-align: middle;
+}
+
+/* Navigation desktop */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header__nav ul {
   display: flex;
   list-style: none;
   gap: 40px;
 }
 
-.header-nav ul li a {
+.header__nav ul li a {
   font-size: 16px;
   color: var(--dark-bleu);
   text-decoration: none;
@@ -40,11 +80,18 @@ header {
   transition: color 0.3s ease;
 }
 
-.header-nav ul li a:hover {
+.header__nav ul li a:hover {
   color: var(--hover-bleu);
 }
 
-.header-btn {
+/* Liens spéciaux (mobile only) */
+.mobile-only {
+  display: none;
+  /* masqué en desktop */
+}
+
+/* Boutons à droite (desktop) */
+.header__btns {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -60,37 +107,79 @@ header {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* MAIN SECTION */
+.btn:hover {
+  background-color: var(--hover-bleu);
+  transform: scale(1.05);
+}
+
+/* Icône hamburger (mobile) */
+.hamburger {
+  display: none;
+  /* caché en desktop */
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+
+.hamburger img {
+  width: 100%;
+  height: auto;
+}
+
+/* Menu mobile ouvert */
+.header__nav.active {
+  display: block;
+  position: absolute;
+  top: 87px;
+  right: 0;
+  width: 200px;
+  background-color: var(--secondary-bleu);
+}
+
+.header__nav.active ul {
+  flex-direction: column;
+  gap: 0;
+}
+
+.header__nav.active ul li {
+  border-bottom: 1px solid var(--neutre);
+}
+
+.header__nav.active ul li a {
+  padding: 14px 20px;
+  color: var(--dark-bleu);
+}
+
+/* .header__btns si tu veux l'afficher en mobile */
+.header__btns.active {
+  display: block;
+  position: absolute;
+  top: 87px;
+  right: 200px;
+  background-color: var(--secondary-bleu);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* ----------------------------
+   SECTION PRINCIPALE
+---------------------------- */
 .main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100vh;
   gap: 125px;
   margin-top: 35px;
   padding: 0;
-  margin-left: 88px;
-}
-
-.main-photo {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.main-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 0px 0px 0px;
+  min-height: 70vh;
+  /* hauteur min pour le contenu */
 }
 
 .appointment-form {
-  width: 35%;
+  width: 45%;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .appointment-form h1 {
@@ -102,9 +191,9 @@ header {
 
 .appointment-form p {
   font-size: 16px;
-  color: var(--text-body-color);
   margin-bottom: 46px;
   width: 80%;
+  color: var(--text-body-color);
 }
 
 form {
@@ -121,8 +210,7 @@ form {
   display: flex;
   align-items: center;
   height: 56px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 24px;
   gap: 12px;
   position: relative;
 }
@@ -131,7 +219,8 @@ form {
   width: 24px;
 }
 
-input, select {
+input,
+select {
   border: none;
   outline: none;
   font-size: 16px;
@@ -140,12 +229,11 @@ input, select {
   flex: 1;
   background: transparent;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  /* supprime l'apparence par défaut */
   padding-right: 40px;
 }
 
-.input-group .custom-icon {
+.custom-icon {
   position: absolute;
   right: 15px;
   width: 24px;
@@ -153,6 +241,7 @@ input, select {
   pointer-events: none;
 }
 
+/* Conteneur date/heure */
 .date-time-container {
   display: flex;
   gap: 20px;
@@ -162,27 +251,18 @@ input, select {
   width: 50%;
 }
 
-.select-group .custom-icon,
-.date-time-container .input-group .custom-icon {
-  position: absolute;
-  right: 15px;
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-}
-
 /* Supprime l'icône par défaut tout en laissant le sélecteur actif */
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
-    opacity: 0; /* Rend l'icône invisible sans la désactiver */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer; /* Permet d'ouvrir le sélecteur au clic */
+  opacity: 0;
+  /* Rend l'icône invisible sans la désactiver */
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  /* Permet d'ouvrir le sélecteur au clic */
 }
 
-
-
+/* Bouton "Prendre un RDV" */
 button.btn {
   width: 100%;
   height: 56px;
@@ -192,7 +272,6 @@ button.btn {
   font-size: 16px;
   font-weight: 600;
   border-radius: 10px;
-  box-shadow: none;
   margin-top: 24px;
   margin-bottom: 24px;
   cursor: pointer;
@@ -201,4 +280,89 @@ button.btn {
 
 button.btn:hover {
   background: var(--hover-bleu);
+}
+
+/* Image de droite */
+.main-photo {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -80px;
+}
+
+.main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 0;
+}
+
+/* ----------------------------
+   MEDIA QUERIES
+---------------------------- */
+/* Tablette & Mobile (max-width: 1124px) */
+@media (max-width: 1124px) {
+  body {
+    margin: 40px;
+  }
+
+  .header__nav,
+  .header__btns {
+    display: none;
+    /* Navigation et boutons masqués en mobile => hamburger */
+  }
+
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+    min-height: auto;
+  }
+
+  .appointment-form {
+    width: 100%;
+  }
+
+  .main-photo {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  body {
+    margin: 16px;
+  }
+
+  .header {
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .appointment-form h1 {
+    font-size: 32px;
+  }
+
+  .appointment-form p {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .main {
+    margin-top: 20px;
+  }
+
+  .main-photo img {
+    display: none;
+  }
 }

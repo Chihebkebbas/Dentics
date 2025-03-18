@@ -1,77 +1,103 @@
+/* ----------------------------
+   Variables globales
+---------------------------- */
 :root {
     --primary-bleu: #1376F8;
     --secondary-bleu: #E6F6FE;
     --dark-bleu: #011632;
     --text-body-color: #3C4959;
     --neutre: #B8B8B8;
+    --hover-bleu: #0F5BB5;
 }
 
-/*
-font weight :   700 = Bold
-                600 = semi Bold
-                500 = medium
-                400 = regular
-*/
+/* ----------------------------
+     RESET / BASE
+  ---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background: linear-gradient(to bottom, var(--secondary-bleu), #ffffff);
     font-family: 'Poppins', sans-serif;
-    margin-top: 46px;
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 100%;
+    margin: 46px 80px;
+    /* marges principales (desktop) */
+    color: var(--text-body-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* évite le scroll horizontal sur mobile */
 }
 
-header {
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
 
+/* ----------------------------
+     HEADER
+  ---------------------------- */
+.header {
     background-color: white;
     border-radius: 10px;
-    padding-left: 46px;
-    padding-right: 46px;
+    padding: 0 46px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 46px;
-    margin-left: 0px;
-    margin-right: 0px;
-    height: 87px;       
-                        /* Aligne le premier élément à gauche, 
-                        le dernier à droite et répartit l'espace   
-                        entre les éléments sans marge aux extrémités. */
-    
+    height: 87px;
+    position: relative;
+    /* Pour le menu mobile en position absolue */
 }
 
+.header__left {
+    display: flex;
+    align-items: center;
+}
 
-img {
+.logo {
     vertical-align: middle;
 }
 
-.header-nav ul {
+/* Navigation Desktop */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
 }
 
-.header-nav ul li a {
+.header__nav ul li a {
     font-size: 16px;
     color: var(--dark-bleu);
     text-decoration: none;
     font-weight: 600;
 }
 
-.header-nav ul li a.active {
+.header__nav ul li a:hover {
+    color: var(--hover-bleu);
+}
+
+.header__nav ul li a.active {
     font-weight: 700;
     color: var(--primary-bleu);
 }
 
-.avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
+/* Liens spéciaux (mobile only) */
+.mobile-only {
+    display: none;
+    /* cachés en desktop */
 }
 
-.header-btn {
+/* Boutons à droite (desktop) */
+.header__btns {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -84,25 +110,78 @@ img {
     text-decoration: none;
     padding: 12px 48px;
     font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.btn:hover {
+    background-color: var(--hover-bleu);
+    transform: scale(1.05);
+}
 
+/* Icône hamburger (mobile) */
+.hamburger {
+    display: none;
+    /* masqué en desktop */
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
 
+.hamburger img {
+    width: 100%;
+    height: auto;
+}
+
+/* Menu mobile ouvert */
+.header__nav.active {
+    display: block;
+    position: absolute;
+    top: 87px;
+    /* sous le header */
+    right: 0;
+    width: 200px;
+    background-color: var(--secondary-bleu);
+}
+
+.header__nav.active ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.header__nav.active ul li {
+    border-bottom: 1px solid var(--neutre);
+}
+
+.header__nav.active ul li a {
+    padding: 14px 20px;
+    color: var(--dark-bleu);
+}
+
+/* ----------------------------
+     HERO
+  ---------------------------- */
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 75px;
-    padding-left: 88px;
-    padding-right: 80px;
+    padding: 0 88px;
+    /* marge interne horizontale */
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--dark-bleu);
 }
 
 .missions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 64px;
-    
+    gap: 40px;
+    margin-top: 32px;
 }
 
 .notre-mission {
@@ -110,84 +189,115 @@ img {
     text-align: start;
 }
 
-
-.hero h1 {
-    font-size: 56px;
-    font-weight: 600;
-    margin: 0px;
-    color: var(--dark-bleu);
-}
-
-.hero h3 {
+.notre-mission h3 {
     font-size: 32px;
     font-weight: 500;
-    margin: 0px;
+    margin: 0 0 16px 0;
     color: var(--dark-bleu);
 }
 
-.hero h6 {
+.notre-mission h6 {
     font-size: 20px;
     font-weight: 500;
-    margin: 0px;
+    margin: 24px 0 16px 0;
     color: var(--dark-bleu);
 }
 
-.hero p {
+.notre-mission p {
     font-size: 16px;
     color: var(--text-body-color);
     text-align: justify;
+    margin-bottom: 16px;
 }
 
+/* Image de la section hero (bloc droit) */
+.aboutus-hero__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
 
+/* ----------------------------
+     CALL-TO-ACTION
+  ---------------------------- */
 .call-to-action {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 75px -88px;
-    height: 433px;
+    /* pour étirer en dehors du container principal */
+    padding: 40px 88px;
+    background-color: var(--dark-bleu);
+    border-radius: 10px;
+    gap: 40px;
 }
 
-.texts {
-    background-color: var(--dark-bleu);
-    height: 100%;
+.call-to-action__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.call-to-action__text {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    padding-left: 8%;
+    color: white;
+    gap: 20px;
 }
 
-.texts h2 {
-    margin: 0px;
+.call-to-action__text h2 {
     font-size: 40px;
     font-weight: 500;
-    color: white;
+    margin: 0;
     text-transform: capitalize;
-    width: 70%;
 }
 
-.texts p {
+.call-to-action__text p {
     font-size: 16px;
-    color: white;
     font-weight: 400;
-    margin-bottom: 56px;
-    width: 70%;
+    margin: 0 0 24px 0;
 }
 
+/* Bouton CTA (fond blanc, texte bleu) */
+.call-to-action .btn {
+    background-color: white;
+    color: var(--dark-bleu);
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 10px;
+    text-align: center;
+}
 
-.footer-nav {
+.call-to-action .btn:hover {
+    background-color: var(--hover-bleu);
+    color: white;
+}
+
+/* ----------------------------
+     FOOTER
+  ---------------------------- */
+.footer {
+    text-align: center;
+    color: var(--text-body-color);
+    margin-top: 40px;
+}
+
+.footer__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
+    margin-bottom: 16px;
 }
 
-.footer-nav ul {
+.footer__nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
 }
 
-.footer-nav ul li a {
+.footer__nav ul li a {
     font-size: 16px;
     color: var(--text-body-color);
     text-decoration: none;
@@ -195,13 +305,111 @@ img {
     transition: color 0.3s ease;
 }
 
-.footer-nav ul li a:hover {
+.footer__nav ul li a:hover {
     color: var(--hover-bleu);
 }
 
 footer p {
-    text-align: center;
     font-size: 14px;
-    color: var(--text-body-color);
     margin-top: 10px;
+}
+
+/* ----------------------------
+     MEDIA QUERIES
+  ---------------------------- */
+/* Tablette & Mobile (max-width: 1124px) */
+@media (max-width: 1124px) {
+    body {
+        margin: 40px;
+    }
+
+    .header__nav,
+    .header__btns {
+        display: none;
+        /* On masque la nav/boutons desktop => hamburger */
+    }
+
+    .hamburger {
+        display: block;
+        /* icône hamburger visible */
+    }
+
+    .mobile-only {
+        display: block;
+        /* liens profil / réservez */
+    }
+
+    .hero {
+        margin-top: 20px;
+        padding: 0 20px;
+    }
+
+    .missions {
+        flex-direction: column;
+    }
+
+    .notre-mission {
+        width: 100%;
+    }
+
+    .call-to-action {
+        flex-direction: column;
+        margin: 40px -20px;
+        padding: 40px 20px;
+    }
+
+    .call-to-action__image,
+    .call-to-action__text {
+        width: 100%;
+    }
+
+    .footer__nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        margin: 16px;
+    }
+
+    .header {
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .missions {
+        gap: 20px;
+    }
+
+    .notre-mission h3 {
+        font-size: 24px;
+    }
+
+    .notre-mission h6 {
+        font-size: 18px;
+    }
+
+    .call-to-action {
+        margin: 20px;
+        padding: 20px 48px;
+    }
+
+    .call-to-action__image {
+        display: none;
+    }
+
+    .call-to-action__text h2 {
+        font-size: 28px;
+    }
+
+    .footer__nav ul {
+        gap: 20px;
+    }
 }

@@ -1,224 +1,411 @@
+/* ----------------------------
+   Variables globales
+---------------------------- */
 :root {
-    --primary-bleu: #1376F8;
-    --secondary-bleu: #E6F6FE;
-    --dark-bleu: #011632;
-    --text-body-color: #3C4959;
-    --neutre: #B8B8B8;
-    --hover-bleu: #0F5BB5;
+  --primary-bleu: #1376F8;
+  --secondary-bleu: #E6F6FE;
+  --dark-bleu: #011632;
+  --text-body-color: #3C4959;
+  --neutre: #B8B8B8;
+  --hover-bleu: #0F5BB5;
+}
+
+/* ----------------------------
+     RESET / BASE
+  ---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  margin: 46px 80px;
+  /* marges principales (desktop) */
+  overflow-x: hidden;
+  /* empêche le scroll horizontal sur mobile */
+  color: var(--text-body-color);
+  line-height: 1.6;
 }
 
-/* HEADER */
-header {
-    background-color: var(--secondary-bleu);
-    border-radius: 10px;
-    padding-left: 46px;
-    padding-right: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 46px 80px 0 80px;
-    height: 87px;
-  }
-  
-  .header-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-  }
-  
-  .header-nav ul li a {
-    font-size: 16px;
-    color: var(--dark-bleu);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .header-nav ul li a:hover {
-    color: var(--hover-bleu);
-  }
-  
-  .header-btn {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  
-  .btn {
-    background-color: var(--primary-bleu);
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-    padding: 12px 48px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* MAIN SECTION */
+/* ----------------------------
+     HEADER
+  ---------------------------- */
+.header {
+  background-color: var(--secondary-bleu);
+  border-radius: 10px;
+  padding: 0 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 46px;
+  height: 87px;
+  position: relative;
+  /* Pour le menu mobile en position absolue */
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  vertical-align: middle;
+}
+
+/* NAV Desktop */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header__nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.header__nav ul li a {
+  font-size: 16px;
+  color: var(--dark-bleu);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.header__nav ul li a:hover {
+  color: var(--hover-bleu);
+}
+
+/* Liens .active si besoin */
+.header__nav ul li a.active {
+  font-weight: 700;
+  color: var(--primary-bleu);
+}
+
+/* Liens spéciaux uniquement pour mobile */
+.mobile-only {
+  display: none;
+  /* masqué en desktop */
+}
+
+/* Boutons (Avatar + Réservez) en desktop */
+.header__btns {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn {
+  background-color: var(--primary-bleu);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 12px 48px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--hover-bleu);
+  transform: scale(1.05);
+}
+
+/* Icône hamburger (mobile) */
+.hamburger {
+  display: none;
+  /* caché en desktop */
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+
+.hamburger img {
+  width: 100%;
+  height: auto;
+}
+
+/* Menu mobile ouvert */
+.header__nav.active {
+  display: block;
+  position: absolute;
+  top: 87px;
+  /* sous le header */
+  right: 0;
+  width: 200px;
+  background-color: var(--secondary-bleu);
+}
+
+.header__nav.active ul {
+  flex-direction: column;
+  gap: 0;
+}
+
+.header__nav.active ul li {
+  border-bottom: 1px solid var(--neutre);
+}
+
+.header__nav.active ul li a {
+  padding: 14px 20px;
+  color: var(--dark-bleu);
+}
+
+/* Si on souhaite faire apparaître le bloc "avatar + bouton" en mobile */
+.header__btns.active {
+  display: block;
+  position: absolute;
+  top: 87px;
+  right: 200px;
+  background-color: var(--secondary-bleu);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* ----------------------------
+     SECTION PRINCIPALE
+  ---------------------------- */
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 220px;
+  margin-top: 40px;
 }
 
 .page-title {
-    font-size: 56px;
-    color: var(--dark-bleu);
-    margin-bottom: 50px;
-    text-align: center;
-    font-weight: 700;
+  font-size: 56px;
+  color: var(--dark-bleu);
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
 }
 
+/* Conteneur principal (form + profil) */
 .content-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: white;
+  padding: 32px;
+  border-radius: 10px;
 }
 
+/* FORMULAIRE */
 .info-form {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--dark-bleu);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-bleu);
+  margin-bottom: 10px;
 }
 
 .input-group {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid var(--neutre);
-    border-radius: 10px;
-    padding: 0px 20px;
-    width: 100%;
-    position: relative;
-    height: 56px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid var(--neutre);
+  border-radius: 10px;
+  padding: 0 20px;
+  height: 56px;
+  position: relative;
 }
 
 .input-group img {
-    width: 20px;
-    margin-right: 10px;
+  width: 20px;
+  margin-right: 10px;
 }
 
 .input-group input {
-    border: none;
-    background: transparent;
-    font-size: 16px;
-    font-family: 'Poppins';
-    outline: none;
-    flex: 1;
-    color: var(--text-body-color);
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-family: 'Poppins';
+  outline: none;
+  flex: 1;
+  color: var(--text-body-color);
 }
 
+/* Password group (icône œil) */
 .password-group .eye-icon {
-    width: 20px;
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
+  width: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
 }
 
+/* SECTION PHOTO DE PROFIL */
 .profile-section {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-pic {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid var(--neutre);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--neutre);
+  margin-bottom: 10px;
 }
 
 .profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Bouton "Modifier la photo" */
 .edit-photo {
-    margin-top: 10px;
-    font-size: 16px;
-    color: var(--dark-bleu);
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: 500;
+  font-size: 16px;
+  color: var(--dark-bleu);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .edit-photo:hover {
-    color: var(--primary-bleu);
+  color: var(--primary-bleu);
 }
 
 button.btn {
-    margin-top: 20px;
-    width: auto;
-    padding: 14px 50px;
-    background: var(--primary-bleu);
-    color: white;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  margin-top: 0;
+  width: auto;
+  padding: 14px 50px;
+  background: var(--primary-bleu);
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button.btn:hover {
-    background: var(--hover-bleu);
+  background: var(--hover-bleu);
+  transform: scale(1.05);
 }
 
-/* DÉCONNEXION */
+/* BLOC DÉCONNEXION */
 .logout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 15px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .logout img {
-    width: 24px;
+  width: 24px;
 }
 
 .logout a {
-    font-size: 18px;
-    color: #E25C5C;
-    text-decoration: none;
-    font-weight: 600;
-    
+  font-size: 18px;
+  color: #e25c5c;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .logout a:hover {
-    color: #803b3b;
+  color: #803b3b;
+}
+
+/* ----------------------------
+     MEDIA QUERIES
+  ---------------------------- */
+/* Tablette & Mobile (max-width: 1124px) */
+@media (max-width: 1124px) {
+  body {
+    margin: 40px;
+  }
+
+  .header__nav,
+  .header__btns {
+    display: none;
+    /* on masque la nav/boutons desktop => hamburger */
+  }
+
+  .hamburger {
+    display: block;
+    /* icône hamburger visible */
+  }
+
+  /* Liens .mobile-only (par ex. Profil, Réservez) en mobile */
+  .mobile-only {
+    display: block;
+  }
+
+  .main {
+    padding: 40px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .info-form,
+  .profile-section {
+    width: 100%;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  body {
+    margin: 16px;
+  }
+
+  .header {
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .content-container {
+    padding: 20px;
+  }
+
+  .logout {
+    margin-bottom: 30px;
+  }
 }

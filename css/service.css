@@ -1,3 +1,6 @@
+/* ----------------------------
+   Variables globales
+---------------------------- */
 :root {
     --primary-bleu: #1376F8;
     --secondary-bleu: #E6F6FE;
@@ -5,27 +8,42 @@
     --text-body-color: #3C4959;
     --neutre: #B8B8B8;
     --hover-bleu: #0F5BB5;
+
+    /* Pour transitions & animations */
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --animation-duration: 0.8s;
 }
 
-/* Base styles */
+/* ----------------------------
+     RESET / BASE
+  ---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(to bottom, var(--secondary-bleu), #ffffff);
     font-family: 'Poppins', sans-serif;
     margin: 46px 80px;
+    /* marges principales (desktop) */
     color: var(--text-body-color);
+    background: linear-gradient(to bottom, var(--secondary-bleu), #fff);
     line-height: 1.6;
+    overflow-x: hidden;
+    /* évite le scroll horizontal sur mobile */
 }
 
 img {
     max-width: 100%;
-    height: auto;
     display: block;
+    height: auto;
 }
 
-/* Header styles */
-header {
+/* ----------------------------
+        HEADER
+    ---------------------------- */
+.header {
     background-color: white;
     border-radius: 10px;
     padding: 0 46px;
@@ -34,37 +52,63 @@ header {
     justify-content: space-between;
     margin-top: 46px;
     height: 87px;
+    position: relative;
+    /* Pour le menu mobile en position absolue */
 }
 
-.header-nav ul {
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    vertical-align: middle;
+}
+
+/* Navigation desktop */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
 }
 
-.header-nav ul li a {
+.header__nav ul li a {
     font-size: 16px;
     color: var(--dark-bleu);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s var(--transition-timing);
+    transition: color 0.3s ease;
 }
 
-.header-nav ul li a:hover {
+.header__nav ul li a:hover {
     color: var(--hover-bleu);
 }
 
-.header-nav ul li a.active {
+.header__nav ul li a.active {
     font-weight: 700;
     color: var(--primary-bleu);
 }
 
-.header-btn {
+/* Liens spéciaux uniquement pour mobile */
+.mobile-only {
+    display: none;
+    /* masqué en desktop */
+}
+
+/* Boutons à droite du header (desktop) */
+.header__btns {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
+/* Bouton général réutilisable */
 .btn {
     background-color: var(--primary-bleu);
     border-radius: 10px;
@@ -72,7 +116,7 @@ header {
     text-decoration: none;
     padding: 12px 48px;
     font-weight: 500;
-    transition: background-color 0.3s var(--transition-timing), transform 0.3s var(--transition-timing);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
@@ -80,7 +124,49 @@ header {
     transform: scale(1.05);
 }
 
-/* Hero section styles */
+/* Icône hamburger (mobile) */
+.hamburger {
+    display: none;
+    /* Caché en desktop */
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.hamburger img {
+    width: 100%;
+    height: auto;
+}
+
+/* Menu mobile ouvert */
+.header__nav.active {
+    display: block;
+    position: absolute;
+    top: 87px;
+    /* sous le header */
+    right: 0;
+    width: 200px;
+    background-color: var(--secondary-bleu);
+}
+
+.header__nav.active ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.header__nav.active ul li {
+    border-bottom: 1px solid var(--neutre);
+}
+
+.header__nav.active ul li a {
+    padding: 14px 20px;
+    color: var(--dark-bleu);
+}
+
+
+/* ----------------------------
+     HERO (Titre + Cartes)
+  ---------------------------- */
 .hero {
     display: flex;
     flex-direction: column;
@@ -92,101 +178,107 @@ header {
 .hero h1 {
     font-size: 56px;
     font-weight: 600;
-    margin: 0;
     color: var(--dark-bleu);
-}
-
-.hero p {
-    margin-top: 4px;
-    margin-bottom: 64px;
-    font-size: 16px;
-    color: var(--text-body-color);
+    margin-bottom: 8px;
 }
 
 .sous-titre {
-    width: 40%;
+    width: 60%;
     text-align: center;
+    font-size: 16px;
+    margin-bottom: 80px;
+    color: var(--text-body-color);
 }
 
-/* Cards section styles */
+/* Grille de cartes */
 .cards {
-    padding: 56px 36px;
-    border-radius: 10px;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    justify-content: center;
     animation: fadeIn var(--animation-duration) ease-in-out;
 }
 
-.cards > div {
+.card {
     background-color: white;
     border-radius: 10px;
     padding: 24px;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 300px;
-    transition: transform 0.3s var(--transition-timing), box-shadow 0.3s var(--transition-timing);
+    justify-content: center;
+
+    text-align: center;
+    transition: transform 0.3s var(--transition-timing),
+        box-shadow 0.3s var(--transition-timing);
 }
 
-.cards > div:hover {
+.card:hover {
     transform: translateY(-10px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.cards h3 {
-    margin-top: 0;
+.card img {
+    height: 70px;
+}
+
+.card h3 {
+    margin-top: 16px;
     font-weight: 500;
     font-size: 24px;
     color: var(--dark-bleu);
 }
 
-.cards p {
-    margin-top: 0;
-    font-weight: 400;
+.card p {
+    margin-top: 12px;
     font-size: 16px;
     color: var(--text-body-color);
 }
 
-/* Call-to-action section styles */
+/* ----------------------------
+     CALL-TO-ACTION
+  ---------------------------- */
 .call-to-action {
-    background-color: var(--dark-bleu);
-    margin: 75px -80px;
-    padding: 84px 188px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    margin: 75px 0;
+    padding: 84px;
+    background-color: var(--dark-bleu);
+    border-radius: 10px;
     animation: slideInFromLeft var(--animation-duration) ease-in-out;
+    gap: 40px;
 }
 
-.texts {
+.call-to-action__text {
+    flex: 1;
+    color: white;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 45%;
+    gap: 20px;
 }
 
-.texts h2 {
-    margin: 0;
+.call-to-action__text h2 {
     font-size: 40px;
     font-weight: 500;
-    color: white;
-    text-transform: capitalize;
-}
-
-.texts p {
     margin: 0;
-    font-size: 16px;
-    color: white;
-    font-weight: 400;
-    margin-bottom: 32px;
 }
 
+.call-to-action__text p {
+    font-size: 16px;
+    margin: 0;
+}
+
+
+
+
+/* Bouton spécial CTA (fond blanc + texte bleu) */
 .call-to-action .btn {
     background-color: white;
     color: var(--dark-bleu);
+    padding: 12px 32px;
+    font-weight: 600;
+    max-width: 70%;
+    text-align: center;
 }
 
 .call-to-action .btn:hover {
@@ -194,27 +286,30 @@ header {
     color: white;
 }
 
-/* Footer styles */
-footer {
-    padding: 2rem 0;
+/* ----------------------------
+     FOOTER
+  ---------------------------- */
+.footer {
     text-align: center;
     color: var(--text-body-color);
+    margin-top: 40px;
 }
 
-.footer-nav {
+.footer__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 80px;
+    padding: 0 10px;
+    margin-bottom: 16px;
 }
 
-.footer-nav ul {
+.footer__nav ul {
     display: flex;
     list-style: none;
     gap: 40px;
 }
 
-.footer-nav ul li a {
+.footer__nav ul li a {
     font-size: 16px;
     color: var(--text-body-color);
     text-decoration: none;
@@ -222,7 +317,7 @@ footer {
     transition: color 0.3s var(--transition-timing);
 }
 
-.footer-nav ul li a:hover {
+.footer__nav ul li a:hover {
     color: var(--hover-bleu);
 }
 
@@ -231,12 +326,15 @@ footer p {
     margin-top: 10px;
 }
 
-/* Animations */
+/* ----------------------------
+     ANIMATIONS
+  ---------------------------- */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -248,36 +346,122 @@ footer p {
         opacity: 0;
         transform: translateX(-100%);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* ----------------------------
+     MEDIA QUERIES
+  ---------------------------- */
+/* Tablette & Mobile (max-width: 1124px) */
+@media (max-width: 1124px) {
     body {
-        margin: 20px;
+        margin: 40px;
     }
 
-    header {
+    .header__nav,
+    .header__btns {
+        display: none;
+        /* Navigation et boutons masqués en mobile => hamburger */
+    }
+
+    .hamburger {
+        display: block;
+        /* icône hamburger s’affiche */
+    }
+
+    /* Afficher les liens profil/réservation dans le menu mobile */
+    .mobile-only {
+        display: block;
+    }
+
+
+    .hero {
         margin-top: 20px;
+    }
+
+    .sous-titre {
+        width: 80%;
+    }
+
+    /* Grille sur 2 colonnes en tablette */
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .call-to-action {
         flex-direction: column;
-        padding: 40px 20px;
-        margin: 40px -20px;
+        padding: 40px;
+        margin: 40px 0;
     }
 
-    .texts {
+    .call-to-action__text,
+    .call-to-action__image {
+        flex: unset;
         width: 100%;
+    }
+
+    .call-to-action .btn {
+        max-width: 100%;
         text-align: center;
     }
 
-    .footer-nav {
+    .footer__nav {
         flex-direction: column;
         gap: 20px;
     }
 }
 
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        margin: 16px;
+    }
+
+    .header {
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero {
+        margin-top: 40px;
+    }
+
+    .sous-titre {
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    /* Grille sur 1 colonne en mobile */
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* On peut masquer l’image CTA si besoin */
+    .call-to-action__image {
+        display: none;
+    }
+
+    .call-to-action__text h2 {
+        font-size: 28px;
+    }
+
+    .call-to-action {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .footer__nav ul {
+        gap: 20px;
+    }
+}

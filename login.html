@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Feuille de style -->
+    <link rel="stylesheet" href="css/login.css" />
+
     <title>Login</title>
 </head>
+
 <body>
-    <header>
 
-        <div>
-            <img src="images/logo.svg" alt="Logo" class="logo">
+    <!-- HEADER -->
+    <header class="header">
+        <!-- Logo -->
+        <div class="header__left">
+            <img src="images/logo.svg" alt="Logo" class="logo" />
         </div>
 
-        <div class="header-btn">
-            <a href="signup.html" class="sign-up">Connexion</a>
-            <a href="login.html" class="login">S'inscrire</a>
+        <!-- Navigation (Desktop / Mobile) -->
+        <nav class="header__nav" id="header-nav">
+            <ul>
+                <!-- On peut placer ici d’autres liens ou juste ceux version mobile -->
+                <li><a href="login.html" class="mobile-only">Connexion</a></li>
+                <li><a href="signup.html" class="mobile-only">S'inscrire</a></li>
+            </ul>
+        </nav>
+
+        <!-- Boutons (Sign Up / Login) version desktop -->
+        <div class="header__btns" id="header-btn">
+            <a href="login.html" class="sign-up">Connexion</a>
+            <a href="signup.html" class="login">S'inscrire</a>
         </div>
 
+        <!-- Icône hamburger (mobile) -->
+        <div class="hamburger" id="hamburger">
+            <img src="images/ham-icon.svg" alt="Menu hamburger" />
+        </div>
     </header>
 
+    <!-- SECTION PRINCIPALE -->
     <section class="main">
+        <!-- IMAGE (masquée en mobile) -->
         <div class="main-photo">
-            <img src="images/login.png" alt="login image">
+            <img src="images/login.png" alt="login image" />
         </div>
+
+        <!-- FORMULAIRE DE LOGIN -->
         <div class="login-forum">
             <h1>Bienvenue</h1>
             <p>Connectez-vous pour gérer vos rendez-vous et suivis dentaires</p>
+
             <form>
                 <div class="email-label">
-                    <img src="images/icon-mail-login.png" alt="icon mail">
-                    <input type="email" name="email" id="email" placeholder="Entrez votre email" required>
+                    <img src="images/icon-mail-login.png" alt="icon mail" />
+                    <input type="email" name="email" id="email" placeholder="Entrez votre email" required />
                 </div>
-                <div class="password-label"> 
-                    <img src="images/icon-password-login.png" alt="icon password">
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+
+                <div class="password-label">
+                    <img src="images/icon-password-login.png" alt="icon password" />
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required />
                 </div>
+
                 <a href="#">Mot de passe oublié ?</a>
+
                 <button class="btn" type="submit">Connexion</button>
             </form>
-            <p>Pas encore membre ? <a href="signup.html">Créez un compte</a></p>
+
+            <p>
+                Pas encore membre ? <a href="signup.html">Créez un compte</a>
+            </p>
         </div>
     </section>
 
+    <!-- SCRIPT JS -->
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>

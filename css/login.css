@@ -1,30 +1,102 @@
+/* ----------------------------
+   Variables globales
+---------------------------- */
 :root {
     --primary-bleu: #1376F8;
     --secondary-bleu: #E6F6FE;
     --dark-bleu: #011632;
     --text-body-color: #3C4959;
     --neutre: #B8B8B8;
+    --hover-bleu: #0F5BB5;
+}
+
+/* ----------------------------
+     RESET / BASE
+  ---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    margin-top: 46px;
+    margin: 46px 80px;
+    /* marges principales (desktop) */
+    overflow-x: hidden;
+    color: var(--text-body-color);
+    line-height: 1.6;
 }
 
-header {
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----------------------------
+     HEADER
+  ---------------------------- */
+.header {
     background-color: var(--secondary-bleu);
     border-radius: 10px;
-    padding-left: 46px;
-    padding-right: 46px;
+    padding: 0 46px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 46px;
-    margin-left: 80px;
-    margin-right: 80px;
     height: 87px;
+    position: relative;
+    /* menu mobile en absolu */
 }
 
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    vertical-align: middle;
+}
+
+/* Nav Desktop + Mobile */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.header__nav ul li a {
+    font-size: 16px;
+    color: var(--dark-bleu);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Liens affichés seulement en mobile */
+.mobile-only {
+    display: none;
+}
+
+.header__nav ul li a:hover {
+    color: var(--hover-bleu);
+}
+
+/* Boutons "Connexion" & "S'inscrire" (desktop) */
+.header__btns {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Lien "Connexion" */
 .sign-up {
     text-decoration: none;
     font-weight: 600;
@@ -33,6 +105,7 @@ header {
     margin-right: 48px;
 }
 
+/* Lien "S'inscrire" */
 .login {
     background-color: var(--primary-bleu);
     border-radius: 10px;
@@ -41,38 +114,92 @@ header {
     padding: 12px 48px;
     font-weight: 600;
     font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-img {
-    vertical-align: middle;
+.login:hover {
+    background-color: var(--hover-bleu);
+    transform: scale(1.05);
 }
 
+/* Icône hamburger (mobile) */
+.hamburger {
+    display: none;
+    /* cachée en desktop */
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.hamburger img {
+    width: 100%;
+    height: auto;
+}
+
+/* Navigation active en mobile */
+.header__nav.active {
+    display: block;
+    position: absolute;
+    top: 87px;
+    right: 0;
+    width: 200px;
+    background-color: var(--secondary-bleu);
+}
+
+.header__nav.active ul {
+    flex-direction: column;
+    gap: 0;
+}
+
+.header__nav.active ul li {
+    border-bottom: 1px solid var(--neutre);
+}
+
+.header__nav.active ul li a {
+    padding: 14px 20px;
+}
+
+/* Boutons en mobile */
+.header__btns.active {
+    display: block;
+    position: absolute;
+    top: 87px;
+    right: 200px;
+    background-color: var(--secondary-bleu);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+/* ----------------------------
+     SECTION PRINCIPALE
+  ---------------------------- */
 .main {
     display: flex;
     align-items: center;
-    height: 100vh; /* Hauteur totale de la page */
     gap: 125px;
     margin-top: 35px;
+    min-height: 70vh;
+    /* pour occuper un espace vertical */
 }
 
 .main-photo {
-    width: 50%; /* La moitié de l'écran */
-    height: 100%;
+    width: 50%;
+
 }
 
 .main-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pour que l'image remplisse bien l'espace */
-    border-radius: 0px 10px 0px 0px;
+    object-fit: cover;
+    border-radius: 0 10px 0 0;
 }
 
+/* Formulaire login */
 .login-forum {
-    width: 35%; /* La moitié de l'écran pour le formulaire */
+    width: 35%;
     display: flex;
     flex-direction: column;
-    align-items: start;
-
+    align-items: flex-start;
 }
 
 .login-forum h1 {
@@ -96,20 +223,21 @@ form {
     width: 100%;
 }
 
-.email-label, .password-label {
+.email-label,
+.password-label {
     background-color: white;
     border: 1px solid var(--neutre);
     border-radius: 10px;
     display: flex;
     align-items: center;
     height: 56px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0 24px;
     gap: 12px;
 }
 
-.email-label img, .password-label img {
-    width: 24px; /* Taille des icônes */
+.email-label img,
+.password-label img {
+    width: 24px;
 }
 
 input {
@@ -117,18 +245,18 @@ input {
     outline: none;
     font-size: 16px;
     font-weight: 400;
-    color: var(--neutre);
+    color: var(--dark-bleu);
     flex: 1;
 }
 
-a {
+/* Lien "mot de passe oublié" + style */
+form a {
     color: var(--text-body-color);
     text-decoration: underline;
     font-size: 16px;
     font-weight: 400;
     width: 100%;
     text-align: end;
-    flex: 1;
 }
 
 button.btn {
@@ -143,9 +271,17 @@ button.btn {
     box-shadow: none;
     margin-top: 24px;
     margin-bottom: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-p:last-child {
+button.btn:hover {
+    background: var(--hover-bleu);
+    transform: scale(1.05);
+}
+
+/* Dernier paragraphe (créez un compte) */
+.login-forum p:last-child {
     width: 100%;
     font-weight: 400;
     font-size: 16px;
@@ -153,7 +289,76 @@ p:last-child {
     text-align: center;
 }
 
-p:last-child a {
+/* Lien "Créez un compte" */
+.login-forum p:last-child a {
     color: var(--dark-bleu);
     text-decoration: underline;
+}
+
+/* ----------------------------
+     MEDIA QUERIES
+  ---------------------------- */
+/* Tablette & Mobile (max-width: 1124px) */
+@media (max-width: 1124px) {
+    body {
+        margin: 40px;
+    }
+
+    .header__nav,
+    .header__btns {
+        display: none;
+        /* menu desktop masqué => hamburger */
+    }
+
+    .hamburger {
+        display: block;
+        /* icône hamburger */
+    }
+
+    .mobile-only {
+        display: block;
+        /* liens mobiles */
+    }
+
+    .main {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .login-forum {
+        width: 100%;
+    }
+
+    .main-photo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        margin: 16px;
+    }
+
+    .header {
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    .login-forum h1 {
+        font-size: 32px;
+    }
+
+    .login-forum p {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+
+    /* Masquer la photo en mobile */
+    .main-photo {
+        display: none;
+    }
 }
