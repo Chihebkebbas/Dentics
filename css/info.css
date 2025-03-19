@@ -319,11 +319,10 @@ button.btn:hover {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding: 15px 30px;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-top: -30px;
+  margin-bottom: 60px;
 }
 
 .logout img {

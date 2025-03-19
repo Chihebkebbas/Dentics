@@ -1,59 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Polices Google (une seule requête) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap"
-        rel="stylesheet" />
-
-    <!-- Feuille de style principale -->
-    <link rel="stylesheet" href="css/service.css" />
-
-    <title>Services</title>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header class="header">
-        <!-- Logo -->
-        <div class="header__left">
-            <img src="images/logo.svg" alt="Logo" class="logo" />
-        </div>
-
-        <!-- Navigation (Desktop / Mobile) -->
-        <nav class="header__nav" id="header-nav">
-            <ul>
-                <li><a href="home.html">Accueil</a></li>
-                <li><a href="service.html" class="active">Services</a></li>
-                <li><a href="aboutus.html">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <!-- Liens seulement pour mobile (profils & réservation) -->
-                <li><a href="info.html" class="mobile-only">Profile</a></li>
-                <li><a href="rdv.html" class="mobile-only">Réservez</a></li>
-            </ul>
-        </nav>
-
-        <!-- Avatar + bouton Réservez (version desktop) -->
-        <div class="header__btns" id="header-btn">
-            <a href="info.html">
-                <img src="images/avatar.svg" alt="Avatar" />
-            </a>
-            <a href="rdv.html" class="btn">Réservez</a>
-        </div>
-
-        <!-- Icône hamburger (affichage mobile) -->
-        <div class="hamburger" id="hamburger">
-            <img src="images/ham-icon.svg" alt="Menu hamburger" />
-        </div>
-    </header>
-
 
     <!-- SECTION HERO (Titre / Sous-titre / Cartes de service) -->
     <section class="hero">
@@ -135,32 +79,9 @@
                 sain et précis. Offrez à vos dents des soins de qualité pour une
                 transformation en toute tranquillité.
             </p>
-            <a href="rdv.html" class="btn">Réservez Maintenant !</a>
+            <a href="index.php?page=rdv" class="btn">Réservez Maintenant !</a>
         </div>
         <div class="call-to-action__image">
             <img src="images/services.png" alt="service image" />
         </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer__nav">
-            <img src="images/logo.svg" alt="logo" />
-            <nav>
-                <ul>
-                    <li><a href="home.html">Accueil</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="aboutus.html">À propos</a></li>
-                    <li><a href="home.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <hr />
-        <p>&copy; Tous droits réservés</p>
-    </footer>
-
-    <!-- SCRIPT JS -->
-    <script src="js/script.js"></script>
-</body>
-
-</html>
