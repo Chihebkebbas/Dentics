@@ -8,16 +8,6 @@
 
             <form>
                 <div class="input-group">
-                    <img src="images/icon-nom-signup.png" alt="Nom" />
-                    <input type="text" placeholder="Nom et prénom" required />
-                </div>
-
-                <div class="input-group">
-                    <img src="images/icon-mail-login.png" alt="Email" />
-                    <input type="email" placeholder="Adresse Email" required />
-                </div>
-
-                <div class="input-group">
                     <img src="images/mdi_phone.svg" alt="Téléphone" />
                     <input type="tel" placeholder="Téléphone" required />
                 </div>
@@ -57,7 +47,7 @@
     </section>
 
     <!-- SCRIPT JS -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
