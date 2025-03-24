@@ -37,30 +37,32 @@ if (in_array($page, ['home', 'service', 'aboutus'])) {
     include($footersPath . 'footer_main.php');
 }
 
+require_once 'model/Database.php';
 
-use Dentics\Controller\AuthController;
-require_once 'control/AuthController.php';
+use Dentics\Model\Database;
 
-if ($page === 'login') {
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-
-        $authController = new AuthController();
-
-        $client = $authController->connexion($email, $password);
-        if ($client) {
-            // Authentification réussie
-            echo "Bienvenue, " . htmlspecialchars($client->nom);
-        } else {
-            // Authentification échouée
-            echo "Email ou mot de passe incorrect";
-        }
-
-    }
+try {
+    $db = Database::getConnexion();
+    echo "Connexion réussie à la base de données !";
+} catch (Exception $e) {
+    echo "Erreur : " . $e->getMessage();
 }
 
+require_once 'control/ClientController.php';
 
+use Dentics\Controller\ClientController;
+
+$clientController = new ClientController();
+
+// Exemple de données d'inscription
+$clientData = [
+    'nom' => 'John Doe',
+    'email' => 'john.doe@example.com',
+    'mot_de_passe' => 'password123',
+    'photo' => 'path/to/photo.jpg'
+];
+
+// Tester l'inscription
+$clientController->inscrireClient($clientData);
 
 ?>

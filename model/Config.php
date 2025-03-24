@@ -9,4 +9,4 @@ $port = 5432;
 
 $schema = 'uapv2500228'; // schema de chiheb
 
-// $schema = 'uapv2500228'; // schema de syphaxe
+// $schema = 'uapv2500230'; // schema de syphaxe

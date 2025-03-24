@@ -1,34 +1,25 @@
-<?php 
-
+<?php
 namespace Dentics\Classe;
 
 class Client extends Utilisateur {
+    private ?int $id_client;
+    private ?string $photo;
 
-    protected ?string $photo;
-
-    public function __construct(string $nom, string $email, string $motDePasse, ?string $photo = null) {
-        parent::__construct($nom, $email, $motDePasse);
+    public function __construct(string $nom, string $email, string $mot_de_passe, ?string $photo = null) {
+        parent::__construct($nom, $email, $mot_de_passe, "client");
         $this->photo = $photo;
     }
 
-    public function setPhoto(?string $linkPhoto) {
-        $this->photo = $linkPhoto;
+    public function getIdClient(): ?int {
+        return $this->id_client;
     }
 
-    public function getPhoto() : ?string {
+    public function getPhoto(): ?string {
         return $this->photo;
     }
 
-    public function modifierProfil(string $nom, string $email, ?string $photo = null) {
-        $this->nom = $nom;
-        $this->email = $email;
-        if ($photo) {
-            $this->photo = $photo;
-        }
-    }
-
-    public function modifierMotDePasse(string $updatedMotdePasse) {
-        $this->motDePasse = password_hash($updatedMotdePasse, PASSWORD_DEFAULT);
+    public function setPhoto(string $photo) {
+        $this->photo = $photo;
     }
 
 }
