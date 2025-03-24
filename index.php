@@ -36,4 +36,31 @@ include($basePath . $page . '/main.php');
 if (in_array($page, ['home', 'service', 'aboutus'])) {
     include($footersPath . 'footer_main.php');
 }
+
+
+use Dentics\Controller\AuthController;
+require_once 'control/AuthController.php';
+
+if ($page === 'login') {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        $authController = new AuthController();
+
+        $client = $authController->connexion($email, $password);
+        if ($client) {
+            // Authentification réussie
+            echo "Bienvenue, " . htmlspecialchars($client->nom);
+        } else {
+            // Authentification échouée
+            echo "Email ou mot de passe incorrect";
+        }
+
+    }
+}
+
+
+
 ?>

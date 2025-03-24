@@ -10,7 +10,7 @@
         <h1>Bienvenue</h1>
         <p>Connectez-vous pour gérer vos rendez-vous et suivis dentaires</p>
 
-        <form>
+        <form action="index.php?page=login" method="POST">
             <div class="email-label">
                 <img src="images/icon-mail-login.png" alt="icon mail" />
                 <input type="email" name="email" id="email" placeholder="Entrez votre email" required />

@@ -4,18 +4,18 @@ namespace Dentics\Classe;
 
 class Client extends Utilisateur {
 
-    private ?string $photo;
+    protected ?string $photo;
 
     public function __construct(string $nom, string $email, string $motDePasse, ?string $photo = null) {
         parent::__construct($nom, $email, $motDePasse);
         $this->photo = $photo;
     }
 
-    public function __setPhoto(string $linkPhoto) {
+    public function setPhoto(?string $linkPhoto) {
         $this->photo = $linkPhoto;
     }
 
-    public function __getPhoto() {
+    public function getPhoto() : ?string {
         return $this->photo;
     }
 
@@ -28,7 +28,7 @@ class Client extends Utilisateur {
     }
 
     public function modifierMotDePasse(string $updatedMotdePasse) {
-        $this->motDePasse = $updatedMotdePasse;
+        $this->motDePasse = password_hash($updatedMotdePasse, PASSWORD_DEFAULT);
     }
 
 }

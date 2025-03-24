@@ -7,8 +7,7 @@ abstract class Utilisateur {
     protected int $id;
     protected string $nom;
     protected string $email;
-    protected string $motDePasse;
-
+    protected string $motDePasse; // Mot de passe hashé en base
 
     public function __construct(string $nom, string $email, string $motDePasse) {
         $this->nom = $nom;

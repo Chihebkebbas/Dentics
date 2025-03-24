@@ -3,7 +3,7 @@
 $host = ($_SERVER['SERVER_NAME'] == 'localhost') ? 'pedago.univ-avignon.fr' : 'localhost';
 $dbname = 'etd';
 $username = 'uapv2500228';
-$password = ($_SERVER['SERVER_NAME'] == 'localhost') ? 'vabzum-towki0-wubvEk' : null;
+$password = ($_SERVER['SERVER_NAME'] == 'localhost') ? 'PHKanA' : null;
 
 $port = 5432;
 
