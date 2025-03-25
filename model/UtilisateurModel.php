@@ -1,23 +1,33 @@
 <?php
 namespace Dentics\Model;
 require_once 'Database.php';
+use PDO;
+use PDOException;
+
 
 class UtilisateurModel {
-    private $db;
+    private PDO $db;
 
     public function __construct() {
-        $this->db = Database->getConnection();
+        $this->db = Database::getConnexion();
     }
 
     public function create($nom, $email, $mot_de_passe, $role) {
-        $sql = "INSERT INTO utilisateur (nom, email, mot_de_passe, role) VALUES (:nom, :email, :mot_de_passe, :role)";
+        $sql = "INSERT INTO utilisateur (nom, email, mot_de_passe, role)
+                VALUES (:nom, :email, :mot_de_passe, :role)
+                RETURNING id";
+        
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            ':nom' => $nom,
-            ':email' => $email,
+            ':nom'          => $nom,
+            ':email'        => $email,
             ':mot_de_passe' => password_hash($mot_de_passe, PASSWORD_BCRYPT),
-            ':role' => $role
+            ':role'         => $role
         ]);
+
+        // Pour Postgres, récupération de l'ID nouvellement inséré
+        $newId = $stmt->fetchColumn();
+        return $newId;
     }
 
     public function read($id) {
@@ -51,5 +61,17 @@ class UtilisateurModel {
         $stmt->execute([':email' => $email]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllDentists(): array {
+        
+        $sql = "SELECT d.id_dentist, u.nom
+                FROM dentist AS d
+                JOIN utilisateur AS u ON d.id_utilisateur = u.id
+                WHERE u.role = 'dentist'";
+        
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

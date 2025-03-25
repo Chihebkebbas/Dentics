@@ -25,7 +25,7 @@
     </div>
 
     <!-- FORMULAIRE DE CONTACT -->
-    <form>
+    <form method="POST" action="index.php?page=home#contact">
         <label for="nom">Nom et Prénom :</label>
         <input type="text" name="nom" id="nom" placeholder="Entrez votre nom" required />
 

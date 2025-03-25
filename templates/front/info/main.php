@@ -50,7 +50,7 @@
   <!-- DÉCONNEXION -->
   <div class="logout">
     <img src="images/logout.svg" alt="Déconnexion" />
-    <a href="#">Déconnexion</a>
+    <a href="index.php?page=login">Déconnexion</a>
   </div>
 
   <!-- SCRIPT JS -->

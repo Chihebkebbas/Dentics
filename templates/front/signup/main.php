@@ -5,7 +5,7 @@
         <div class="signup-forum">
             <h1>S’inscrire</h1>
             <p>Rejoignez-nous pour un sourire éclatant !</p>
-            <form>
+            <form method="POST" action="index.php?page=signup">
                 <div class="email-label">
                     <img src="images/icon-nom-signup.png" alt="icon nom" />
                     <input type="text" name="nom" id="nom" placeholder="Nom et Prénom" required />
@@ -21,12 +21,14 @@
                     <input type="password" name="password" id="password" placeholder="Mot de Passe" required />
                 </div>
 
+                <!--
                 <div class="password-label">
                     <img src="images/icon-password-login.png" alt="icon password" />
                     <input type="password" name="confirm-password" id="confirm-password"
                         placeholder="Confirmez le mot de passe" required />
                 </div>
-
+                -->
+                
                 <div class="check">
                     <input type="checkbox" id="check-conditions" />
                     <label for="check-conditions">Accepter les conditions générales.</label>

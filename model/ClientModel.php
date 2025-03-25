@@ -1,10 +1,14 @@
 <?php
+namespace Dentics\Model;
+require_once 'Database.php';
+use PDO;
+use PDOException;
 
 class ClientModel {
-    private $db;
+    private PDO $db;
 
-    public function __construct($database) {
-        $this->db = $database;
+    public function __construct() {
+        $this->db = Database::getConnexion();
     }
 
     // Create a new client
