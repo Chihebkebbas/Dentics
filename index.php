@@ -137,12 +137,9 @@ switch ($page) {
                 $ok = $rdvController->prendreRdv($nom, $email, $telephone, $dentist, $dateRdv, $heureRdv);
     
                 if ($ok) {
-                    echo "Rendez-vous enregistré avec succès (statut 'en attente') !";
-                    // eventuellement, redirection :
-                    // header("Location: index.php?page=home");
-                    // exit;
+                    echo "<p style='color:green'>Rendez-vous enregistré avec succès <p style='color:orange'>(statut 'en attente')</p> !</p>";
                 } else {
-                    echo "Erreur lors de la prise de rendez-vous.";
+                    echo "<p style='color:red'>Erreur lors de la prise de rendez-vous.</p>";
                 }
             }
         break;

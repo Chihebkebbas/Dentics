@@ -1,6 +1,6 @@
 <?php
 
-$host = ($_SERVER['SERVER_NAME'] == 'localhost') ? 'pedago.univ-avignon.fr' : 'localhost';
+$host = ($_SERVER['SERVER_NAME'] == 'localhost') ? 'pedago.univ-avignon.fr' : 'pedago01c.univ-avignon.fr';
 $dbname = 'etd';
 $username = 'uapv2500230';
 //$username = 'uapv2500228';
@@ -8,7 +8,7 @@ $username = 'uapv2500230';
 $chiheb = 'PHKanA';
 $syphax = 'f23WdW';
 
-$password = ($_SERVER['SERVER_NAME'] == 'localhost') ? $syphax : null;
+$password = $syphax;
 
 $port = 5432;
 
