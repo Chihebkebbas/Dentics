@@ -14,10 +14,10 @@
 
     <!-- Chargement dynamique du CSS selon la page -->
     <?php if ($page == 'aboutus'): ?>
-        <link rel="stylesheet" href="css/aboutus.css" />
+        <link rel="stylesheet" href="../../css/aboutus.css" />
         <title>Dentics - À propos</title>
-    <?php else: ?>
-        <link rel="stylesheet" href="css/service.css" />
+    <?php elseif ($_SERVER['SCRIPT_NAME'] == '/control/service.php'): ?>
+        <link rel="stylesheet" href="../../css/service.css" />
         <title>Dentics - Services</title>
     <?php endif; ?>
 
@@ -29,14 +29,14 @@
     <header class="header">
         <!-- Logo -->
         <div class="header__left">
-            <img src="images/logo.svg" alt="Logo" class="logo" />
+            <img src="../../images/logo.svg" alt="Logo" class="logo" />
         </div>
 
         <!-- Navigation (Desktop / Mobile) -->
         <nav class="header__nav" id="header-nav">
             <ul>
                 <li><a href="index.php?page=home" class="<?= ($page == 'home') ? 'active' : '' ?>">Accueil</a></li>
-                <li><a href="index.php?page=service" class="<?= ($page == 'service') ? 'active' : '' ?>">Services</a></li>
+                <li><a href="control/service.php" class="<?= ($page == 'service') ? 'active' : '' ?>">Services</a></li>
                 <li><a href="index.php?page=aboutus" class="<?= ($page == 'aboutus') ? 'active' : '' ?>">À propos</a></li>
                 <li><a href="index.php?page=home#contact">Contact</a></li>
                 <!-- Liens seulement pour mobile (profils & réservation) -->
@@ -48,13 +48,13 @@
         <!-- Avatar + bouton Réservez (version desktop) -->
         <div class="header__btns" id="header-btn">
             <a href="index.php?page=info">
-                <img src="images/avatar.svg" alt="Avatar" />
+                <img src="../../images/avatar.svg" alt="Avatar" />
             </a>
             <a href="index.php?page=rdv" class="btn">Réservez</a>
         </div>
 
         <!-- Icône hamburger (affichage mobile) -->
         <div class="hamburger" id="hamburger">
-            <img src="images/ham-icon.svg" alt="Menu hamburger" />
+            <img src="../../images/ham-icon.svg" alt="Menu hamburger" />
         </div>
     </header>

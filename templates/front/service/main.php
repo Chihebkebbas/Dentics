@@ -10,7 +10,7 @@
         <!-- CARTES (GRILLE) -->
         <div class="cards">
             <div class="card">
-                <img src="images/icon-card1.svg" alt="card1 icon" />
+                <img src="../../images/icon-card1.svg" alt="card1 icon" />
                 <h3>Traitement De Canal</h3>
                 <p>
                     Le traitement de canal permet de traiter l'infection de la pulpe
@@ -19,7 +19,7 @@
             </div>
 
             <div class="card">
-                <img src="images/icon-card2.svg" alt="card2 icon" />
+                <img src="../../images/icon-card2.svg" alt="card2 icon" />
                 <h3>Dentiste Esthétique</h3>
                 <p>
                     Le dentiste esthétique se spécialise dans l'embellissement du
@@ -29,7 +29,7 @@
             </div>
 
             <div class="card">
-                <img src="images/icon-card3.svg" alt="card3 icon" />
+                <img src="../../images/icon-card3.svg" alt="card3 icon" />
                 <h3>Implant Dentaire</h3>
                 <p>
                     Un implant dentaire est une racine artificielle en titane insérée
@@ -38,7 +38,7 @@
             </div>
 
             <div class="card">
-                <img src="images/icon-card4.svg" alt="card4 icon" />
+                <img src="../../images/icon-card4.svg" alt="card4 icon" />
                 <h3>Blanchiment Des Dents</h3>
                 <p>
                     Il n’a jamais été aussi facile d’éclaircir votre sourire à la
@@ -47,7 +47,7 @@
             </div>
 
             <div class="card">
-                <img src="images/icon-card5.svg" alt="card5 icon" />
+                <img src="../../images/icon-card5.svg" alt="card5 icon" />
                 <h3>Dentisterie D’Urgence</h3>
                 <p>
                     En général, tout problème dentaire nécessitant un traitement
@@ -56,7 +56,7 @@
             </div>
 
             <div class="card">
-                <img src="images/icon-card6.svg" alt="card6 icon" />
+                <img src="../../images/icon-card6.svg" alt="card6 icon" />
                 <h3>Prévention</h3>
                 <p>
                     La dentisterie préventive englobe les soins dentaires visant à
@@ -82,6 +82,6 @@
             <a href="index.php?page=rdv" class="btn">Réservez Maintenant !</a>
         </div>
         <div class="call-to-action__image">
-            <img src="images/services.png" alt="service image" />
+            <img src="../../images/services.png" alt="service image" />
         </div>
     </section>

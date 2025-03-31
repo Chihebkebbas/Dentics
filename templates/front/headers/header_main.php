@@ -37,7 +37,7 @@
         <nav class="header__nav" id="header-nav">
             <ul>
                 <li><a href="index.php?page=home" class="<?= ($page == 'home') ? 'active' : '' ?>">Accueil</a></li>
-                <li><a href="index.php?page=service" class="<?= ($page == 'service') ? 'active' : '' ?>">Services</a></li>
+                <li><a href="control/service.php" class="<?= ($page == 'service') ? 'active' : '' ?>">Services</a></li>
                 <li><a href="index.php?page=aboutus" class="<?= ($page == 'aboutus') ? 'active' : '' ?>">À propos</a></li>
                 <li><a href="index.php?page=home#contact">Contact</a></li>
                 <!-- Liens seulement pour mobile (profils & réservation) -->
