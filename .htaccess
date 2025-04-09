@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /~uapv2500228/
+
+# Si le fichier ou dossier demandé existe, on ne réécrit pas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Réécrire /home vers /control/home.php
+RewriteRule ^home$ control/home.php [L]
+
+RewriteRule ^service$ control/service.php [L]
+RewriteRule ^rdv$ control/rdv.php [L]
+RewriteRule ^info$ control/info.php [L]
+RewriteRule ^aboutus$ control/aboutus.php [L]
+RewriteRule ^signup$ control/signup.php [L]

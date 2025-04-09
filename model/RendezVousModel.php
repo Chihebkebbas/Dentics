@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * Fichier : RendezVousModel.php
+ * Description : Modèle pour la gestion des rendez-vous (insertion dans la base de données).
+ * 
+ * PHP version 8
+ *
+ * @category Model
+ * @package  Dentics\Model
+ * @auteur Chiheb Kebbas
+ */
+
+
 namespace Dentics\Model;
 require_once 'Database.php';
 use PDO;
@@ -48,3 +61,5 @@ class RendezVousModel
         return null;
     }
 }
+
+

@@ -1,4 +1,16 @@
 <?php
+
+
+/**
+ * Ce fichier fait partie du projet Dentics.
+ * 
+ * Version PHP 7.4 ou supérieure
+ * 
+ * @catégorie  Modèle
+ * @package    Dentics\Model
+ * @auteur     Chiheb Kebbas
+ */
+
 namespace Dentics\Model;
 require_once 'Database.php';
 use PDO;

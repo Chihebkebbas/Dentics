@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Class MessageContact
+ *
+ * Cette classe représente un message de contact avec des détails tels que le nom de l'expéditeur, 
+ * l'email, le contenu du message, ainsi que la date et l'heure d'envoi du message.
+ *
+ * @package Dentics\Classe
+ * @auteur     Chiheb Kebbas
+ */
+
 namespace Dentics\Classe;
 
 class MessageContact

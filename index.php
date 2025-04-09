@@ -1,7 +1,38 @@
 <?php
 
+/**
+ * Ce fichier gère la logique principale de l'application, y compris :
+ * - L'initialisation de la session.
+ * - L'inclusion des contrôleurs, modèles et classes nécessaires.
+ * - La gestion de la page demandée via le paramètre `?page=`.
+ * - La connexion à la base de données.
+ * - Le traitement du formulaire de connexion utilisateur.
+ *
+ * Fonctionnalités principales :
+ * - Vérifie si la page demandée existe, sinon redirige vers la page de connexion.
+ * - Initialise la connexion à la base de données et gère les erreurs éventuelles.
+ * - Authentifie l'utilisateur via le formulaire de connexion et initialise la session en cas de succès.
+ *
+ * Dépendances :
+ * - Contrôleurs : LoginController, RendezVousController, ContactController.
+ * - Modèles : UtilisateurModel, ClientModel, RendezVousModel, DisponibiliteModel, MessageContactModel.
+ * - Classe : MessageContact.
+ * - Base de données : Database.
+ *
+ * @package Dentics
+ * @auteur     Chiheb Kebbas
+ */
+
+session_start();
+
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+
 use Dentics\Control\LoginController;
 use Dentics\Control\RendezVousController;
+
 // Contrôleurs et modèles
 require_once 'control/LoginController.php';
 require_once 'model/UtilisateurModel.php';
@@ -12,7 +43,6 @@ require_once 'model/DisponibiliteModel.php';
 require_once 'control/ContactController.php';
 require_once 'model/MessageContactModel.php';
 require_once 'class/MessageContact.php';
-        
 
 // Par défaut, on prend 'login' si ?page=... n'est pas défini
 $page = $_GET['page'] ?? 'login';
@@ -27,43 +57,8 @@ if (!is_dir($basePath . $page)) {
     $page = 'login';
 }
 
-// Inclusion conditionnelle du HEADER selon la page
-switch ($page) {
-    case 'login':
-    case 'signup':
-        include($headersPath . 'header_auth.php');
-        break;
-
-    case 'service':
-    case 'aboutus':
-        include($headersPath . 'header_secondary.php');
-        break;
-
-    case 'rdv':
-        // J'appelle le contrôleur pour avoir la liste des dentistes
-        $rdvController = new \Dentics\Control\RendezvousController();
-        
-         // Récupérer la liste des dentistes
-        $dentists = $rdvController->afficherFormulaireRdv();
-        
-        // Récupérer les disponibilités (dates / heures)
-        
-        $disponibilites = $rdvController->getDisponibilites();
-        include($headersPath . 'header_main.php');
-        break;
-
-    default: // home, rdv, info, etc.
-        include($headersPath . 'header_main.php');
-        break;
-}
-
-// Inclusion du contenu principal
+include($headersPath . 'header_auth.php');
 include($basePath . $page . '/main.php');
-
-// Inclusion conditionnelle du FOOTER uniquement pour certaines pages
-if (in_array($page, ['home', 'service', 'aboutus'])) {
-    include($footersPath . 'footer_main.php');
-}
 
 // ---------------------------------------
 // Connexion DB + use + require
@@ -77,95 +72,32 @@ try {
     echo "Erreur : " . $e->getMessage();
 }
 
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    die("Erreur de sécurité CSRF : formulaire invalide.");
+}
 
 
+// Formulaire de connexion
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email    = $_POST['email']    ?? '';
+    $password = $_POST['password'] ?? '';
 
-
-// ---------------------------------------
-// TRAITEMENT DES FORMULAIRES SELON LA PAGE
-switch ($page) {
-
-    case 'login':
-        // Formulaire de connexion
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email    = $_POST['email']    ?? '';
-            $password = $_POST['password'] ?? '';
-
-            $loginController = new LoginController();
-            if ($loginController->authentifier($email, $password)) {
-                // Redirection si OK
-                header("Location: index.php?page=home");
-                exit;
-            } else {
-                echo "Email ou mot de passe incorrect !";
-            }
-        }
-        break;
-
-    case 'signup':
-        // Formulaire d'inscription
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nom        = $_POST['nom']      ?? '';
-            $email      = $_POST['email']    ?? '';
-            $motDePasse = $_POST['password'] ?? '';
-
-            $loginController = new LoginController();
-            if ($loginController->inscrire($nom, $email, $motDePasse)) {
-                // Redirection si OK
-                header("Location: index.php?page=login");
-                exit;
-            } else {
-                echo "Une erreur est survenue lors de l'inscription.";
-            }
-        }
-        break;
-
-        case 'rdv':
-
-            // Si le formulaire "Prendre un RDV" est soumis
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // On récupère les champs
-                $nom        = $_POST['nom']        ?? '';
-                $email      = $_POST['email']      ?? '';
-                $telephone  = $_POST['telephone']  ?? '';
-                $dentist    = $_POST['dentist']    ?? '';
-                $dateRdv    = $_POST['date_rdv']   ?? '';
-                $heureRdv   = $_POST['heure_rdv']  ?? '';
-
-                // On appelle le contrôleur 
-                $rdvController = new \Dentics\Control\RendezvousController();
-                $ok = $rdvController->prendreRdv($nom, $email, $telephone, $dentist, $dateRdv, $heureRdv);
-    
-                if ($ok) {
-                    echo "<p style='color:green'>Rendez-vous enregistré avec succès <p style='color:orange'>(statut 'en attente')</p> !</p>";
-                } else {
-                    echo "<p style='color:red'>Erreur lors de la prise de rendez-vous.</p>";
-                }
-            }
-        break;
-
-        case 'home':
+    $loginController = new LoginController();
+    if ($loginController->authentifier($email, $password)) {
+        // Récupérer l'utilisateur
+        $user = $loginController->getUtilisateurParEmail($email);
         
-            // Traitement du formulaire de contact (en POST)
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nom'], $_POST['email'], $_POST['message'])) {
-                
-                // Récupérer les valeurs du formulaire
-                $nom     = $_POST['nom']     ?? '';
-                $email   = $_POST['email']   ?? '';
-                $message = $_POST['message'] ?? '';
-        
-                // Appeler le contrôleur
-                $contactCtrl = new \Dentics\Control\ContactController();
-                $ok = $contactCtrl->envoyerMessage($nom, $email, $message);
-        
-                if ($ok) {
-                    echo "<p style='color:green'>Votre message a bien été envoyé !</p>";
-                } else {
-                    echo "<p style='color:red'>Une erreur est survenue lors de l'envoi du message.</p>";
-                }
-            }
-    
-    default:
-        // Pour les autres pages, s'il y a un POST particulier à traiter, on le gère ici
-        break;
+        $_SESSION['utilisateur'] = [
+            'id'    => $user['id'],
+            'email' => $user['email'],
+            'nom'   => $user['nom']
+        ];
+
+
+        // Redirection si OK
+        header("Location: control/home.php");
+        exit;
+    } else {
+        echo "Email ou mot de passe incorrect !";
+    }
 }

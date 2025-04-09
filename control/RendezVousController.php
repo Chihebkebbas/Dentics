@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * Contrôleur pour la gestion des rendez-vous.
+ * 
+ * Cette classe fournit des méthodes pour gérer les rendez-vous, y compris la création,
+ * l'affichage des formulaires, et la récupération des disponibilités.
+ * 
+ * @package Dentics\Control
+ * @auteur     Chiheb Kebbas
+ */
+
+
 namespace Dentics\Control;
 
 use Dentics\Classe\RendezVous;
@@ -7,8 +19,8 @@ use Dentics\Model\Database;
 use Dentics\Model\UtilisateurModel;
 use Dentics\Model\DisponibiliteModel;
 
-require_once 'class/RendezVous.php'; 
-require_once 'model/DisponibiliteModel.php';
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/class/RendezVous.php'; 
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/model/DisponibiliteModel.php';
 
 class RendezvousController
 {

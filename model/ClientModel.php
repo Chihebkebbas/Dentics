@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Class ClientModel
+ *
+ * This class provides methods to interact with the Client table in the database.
+ * It allows creating, retrieving, updating, and deleting client records.
+ *
+ * @package Dentics\Model
+ * @auteur     Chiheb Kebbas
+ */
+
 namespace Dentics\Model;
 require_once 'Database.php';
 use PDO;

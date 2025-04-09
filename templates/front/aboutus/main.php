@@ -29,7 +29,7 @@
 
             <!-- Bloc droit : image -->
             <div class="aboutus-hero__image">
-                <img src="images/aboutus-hero.png" alt="about us hero image" />
+                <img src="../images/aboutus-hero.png" alt="about us hero image" />
             </div>
         </div>
     </section>
@@ -37,7 +37,7 @@
     <!-- SECTION CALL-TO-ACTION -->
     <section class="call-to-action">
         <div class="call-to-action__image">
-            <img src="images/aboutus-cta.png" alt="about us cta image" />
+            <img src="../images/aboutus-cta.png" alt="about us cta image" />
         </div>
         <div class="call-to-action__text">
             <h2>Prenez soin de votre sourire dès aujourd’hui !</h2>
@@ -45,6 +45,6 @@
                 Contactez-nous pour prendre rendez-vous et découvrez comment nous
                 pouvons vous aider à maintenir une santé bucco-dentaire optimale.
             </p>
-            <a href="index.php?page=rdv" class="btn">Réservez Maintenant !</a>
+            <a href="rdv.php" class="btn">Réservez Maintenant !</a>
         </div>
     </section>

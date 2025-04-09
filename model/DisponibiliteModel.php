@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * Class DisponibiliteModel
+ *
+ * Cette classe gère les disponibilités des dentistes, permettant de récupérer
+ * les dates et heures disponibles, ainsi que les disponibilités spécifiques
+ * à un dentiste donné.
+ *
+ * @package Dentics\Model
+ * @auteur     Chiheb Kebbas
+ */
+
 namespace Dentics\Model;
 
 require_once 'Database.php';

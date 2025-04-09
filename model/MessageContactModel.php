@@ -1,4 +1,20 @@
 <?php
+
+/**
+ * Classe MessageContactModel
+ * 
+ * Cette classe gère les interactions avec la base de données pour les messages de contact.
+ * Elle permet notamment d'insérer un nouveau message de contact dans la base de données.
+ * 
+ * Propriétés :
+ * - $db : Instance de PDO utilisée pour interagir avec la base de données.
+ * 
+ * Méthodes :
+ * - __construct() : Initialise la connexion à la base de données.
+ * - create(MessageContact $msg): ?int : Insère un nouveau message de contact en base de données
+ *   et retourne l'identifiant du message créé, ou null en cas d'échec.
+ */
+
 namespace Dentics\Model;
 
 require_once 'Database.php';

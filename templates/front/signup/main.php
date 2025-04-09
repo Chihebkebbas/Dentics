@@ -5,25 +5,27 @@
         <div class="signup-forum">
             <h1>S’inscrire</h1>
             <p>Rejoignez-nous pour un sourire éclatant !</p>
-            <form method="POST" action="index.php?page=signup">
+            <form method="POST" action="signup.php">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
                 <div class="email-label">
-                    <img src="images/icon-nom-signup.png" alt="icon nom" />
+                    <img src="../images/icon-nom-signup.png" alt="icon nom" />
                     <input type="text" name="nom" id="nom" placeholder="Nom et Prénom" required />
                 </div>
 
                 <div class="email-label">
-                    <img src="images/icon-mail-login.png" alt="icon mail" />
+                    <img src="../images/icon-mail-login.png" alt="icon mail" />
                     <input type="email" name="email" id="email" placeholder="Adresse Email" required />
                 </div>
 
                 <div class="password-label">
-                    <img src="images/icon-password-login.png" alt="icon password" />
+                    <img src="../images/icon-password-login.png" alt="icon password" />
                     <input type="password" name="password" id="password" placeholder="Mot de Passe" required />
                 </div>
 
                 <!--
                 <div class="password-label">
-                    <img src="images/icon-password-login.png" alt="icon password" />
+                    <img src="../images/icon-password-login.png" alt="icon password" />
                     <input type="password" name="confirm-password" id="confirm-password"
                         placeholder="Confirmez le mot de passe" required />
                 </div>
@@ -39,13 +41,13 @@
 
             <p>
                 Vous avez déjà un compte ?
-                <a href="login.html">Connectez-vous.</a>
+                <a href="../index.php">Connectez-vous.</a>
             </p>
         </div>
 
         <!-- PHOTO À DROITE -->
         <div class="main-photo">
-            <img src="images/signup.png" alt="Inscription image" />
+            <img src="../images/signup.png" alt="Inscription image" />
         </div>
     </section>
 

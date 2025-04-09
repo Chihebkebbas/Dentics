@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Class Client
+ *
+ * Cette classe représente un client, qui est un type d'utilisateur dans le système.
+ * Elle étend la classe Utilisateur et ajoute des propriétés et méthodes spécifiques aux clients.
+ *
+ * @package Dentics\Classe
+ * @auteur     Chiheb Kebbas
+ */
+
 namespace Dentics\Classe;
 
 class Client extends Utilisateur {

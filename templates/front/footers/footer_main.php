@@ -1,13 +1,13 @@
    <!-- FOOTER -->
    <footer class="footer">
         <div class="footer__nav">
-            <img src="images/logo.svg" alt="logo" />
+            <img src="../images/logo.svg" alt="logo" />
             <nav>
                 <ul>
-                    <li><a href="index.php?page=home">Accueil</a></li>
-                    <li><a href="index.php?page=service">Services</a></li>
-                    <li><a href="index.php?page=aboutus">À propos</a></li>
-                    <li><a href="index.php?page=home#contact">Contact</a></li>
+                    <li><a href="home.php">Accueil</a></li>
+                    <li><a href="service.php">Services</a></li>
+                    <li><a href="aboutus.php">À propos</a></li>
+                    <li><a href="home.php#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -16,7 +16,7 @@
     </footer>
 
     <!-- SCRIPT JS -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

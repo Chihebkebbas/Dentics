@@ -7,26 +7,27 @@
             <p>Planifiez votre consultation en quelques clics</p>
 
              <!-- On fait un POST vers index.php?page=rdv -->
-        <form method="POST" action="index.php?page=rdv">
+        <form method="POST" action="rdv.php">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
 
             <div class="input-group">
-                <img src="images/icon-nom-signup.png" alt="Nom" />
+                <img src="../images/icon-nom-signup.png" alt="Nom" />
                 <input type="text" name="nom" id="nom" placeholder="Nom et prénom" required />
             </div>
 
             <div class="input-group">
-                <img src="images/icon-mail-login.png" alt="Email" />
+                <img src="../images/icon-mail-login.png" alt="Email" />
                 <input type="email" name="email" id="email" placeholder="Adresse Email" required />
             </div>
 
             <div class="input-group">
-                <img src="images/mdi_phone.svg" alt="Téléphone" />
+                <img src="../images/mdi_phone.svg" alt="Téléphone" />
                 <input type="tel" name="telephone" id="telephone" placeholder="Téléphone" required />
             </div>
 
             
             <div class="input-group select-group">
-                <img src="images/icon-teeth.svg" alt="Dentiste" />
+                <img src="../images/icon-teeth.svg" alt="Dentiste" />
                 <select name="dentist" required >
                     <option value="" disabled selected>Choisissez un dentiste</option>
                     <?php 
@@ -38,11 +39,11 @@
                         <?php endforeach; ?> */
                     <?php endif; ?>
                 </select>
-                <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
+                <img src="../images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
             </div> 
 
             <div class="input-group select-group">
-                <img src="images/icon-calendar.svg" alt="Calendar" />
+                <img src="../images/icon-calendar.svg" alt="Calendar" />
                 <select name="date_rdv" required>
                     <option value="" disabled selected>Choisissez la date</option>
                     <?php 
@@ -53,11 +54,11 @@
                     }
                     ?>
                 </select>
-                <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
+                <img src="../images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
             </div>
 
             <div class="input-group select-group">
-                <img src="images/icon-alarm.svg" alt="Alarm" />
+                <img src="../images/icon-alarm.svg" alt="Alarm" />
                 <select name="heure_rdv" required>
                     <option value="" disabled selected>Choisissez l'heure</option>
                     <?php 
@@ -68,18 +69,18 @@
                     }
                     ?>
                 </select>
-                <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
+                <img src="../images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
             </div>
                 <!--
                 <div class="date-time-container">
                     <div class="input-group">
-                        <img src="images/icon-calendar.svg" alt="Calendrier" />
+                        <img src="../images/icon-calendar.svg" alt="Calendrier" />
                         <input type="date" required />
-                        <img src="images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
+                        <img src="../images/icon-park-outline_down.svg" class="custom-icon" alt="Flèche" />
                     </div>
 
                     <div class="input-group">
-                        <img src="images/icon-alarm.svg" alt="Horloge" />
+                        <img src="../images/icon-alarm.svg" alt="Horloge" />
                         <input type="time" required />
                     </div>
                 </div> -->
@@ -90,7 +91,7 @@
 
         <!-- IMAGE ILLUSTRATIVE -->
         <div class="main-photo">
-            <img src="images/rdv.png" alt="Illustration RDV" />
+            <img src="../images/rdv.png" alt="Illustration RDV" />
         </div>
     </section>
 

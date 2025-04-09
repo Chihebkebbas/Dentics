@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * Classe Database
+ *
+ * Cette classe implémente le pattern singleton pour gérer une connexion à la base de données avec PDO.
+ * Elle garantit qu'une seule instance de la connexion PDO est créée et réutilisée dans toute l'application.
+ *
+ * @package Dentics\Model
+ * @auteur     Chiheb Kebbas
+ */
+
+
 namespace Dentics\Model;
 
 require_once('Config.php');

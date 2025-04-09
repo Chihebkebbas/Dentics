@@ -1,4 +1,27 @@
 <?php
+
+/**
+ * Classe abstraite représentant un utilisateur.
+ *
+ * @package Dentics\Classe
+ * @auteur     Chiheb Kebbas
+ * 
+ * @property int|null $id L'identifiant unique de l'utilisateur.
+ * @property string $nom Le nom de l'utilisateur.
+ * @property string $email L'adresse email de l'utilisateur.
+ * @property string $mot_de_passe Le mot de passe de l'utilisateur (haché).
+ * @property string $role Le rôle de l'utilisateur.
+ * 
+ * @method int|null getId() Récupère l'identifiant de l'utilisateur.
+ * @method string getNom() Récupère le nom de l'utilisateur.
+ * @method string getEmail() Récupère l'email de l'utilisateur.
+ * @method string getMotDePasse() Récupère le mot de passe haché de l'utilisateur.
+ * @method string getRole() Récupère le rôle de l'utilisateur.
+ * @method void setNom(string $nom) Définit le nom de l'utilisateur.
+ * @method void setMotDePasse(string $mot_de_passe) Définit et hache le mot de passe de l'utilisateur.
+ * @method void setEmail(string $email) Définit l'email de l'utilisateur.
+ */
+
 namespace Dentics\Classe;
 
 abstract class Utilisateur {

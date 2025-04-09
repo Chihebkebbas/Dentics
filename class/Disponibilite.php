@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Class Disponibilite
+ *
+ * Cette classe représente une disponibilité d'un dentiste.
+ *
+ * @package Dentics\Classe
+ * @auteur     Chiheb Kebbas
+ */
 namespace Dentics\Classe;
 
 class Disponibilite

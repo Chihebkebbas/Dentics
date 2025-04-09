@@ -1,9 +1,29 @@
 <?php
+
+/**
+ * ContactController
+ *
+ * Cette classe gère les opérations liées aux messages de contact, y compris
+ * leur création, leur envoi et leur stockage dans la base de données.
+ *
+ * PHP version 8.0
+ *
+ * @category Controller
+ * @package  Dentics\Control
+ * @auteur     Chiheb Kebbas
+ */
+
+
 namespace Dentics\Control;
 
 use Dentics\Classe\MessageContact;
 use Dentics\Model\MessageContactModel;
 use Dentics\Model\Database;
+
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/model/Database.php';
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/model/MessageContactModel.php';
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/class/MessageContact.php';
+require_once '/nfs/data01/data/uapv25/uapv2500228/public_html/utils/MailHelper.php';
 
 class ContactController
 {
@@ -28,9 +48,15 @@ class ContactController
         // On crée l'objet métier
         $messageObj = new MessageContact($nom, $email, $contenu, $dateEnvoi, $heureEnvoi);
 
-        // On l'insère via le Model
+        // On insère le message
         $newId = $this->model->create($messageObj);
 
-        return $newId !== null;
+        // Si l'insertion réussit, on envoie le mail
+        if ($newId !== null) {
+            envoyerMailContact($nom, $email, $contenu);
+            return true;
+        }
+
+        return false;
     }
 }

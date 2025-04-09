@@ -8,14 +8,14 @@
         </p>
         <div class="contact__cards">
             <div class="contact__card">
-                <img src="images/icon-mail.svg" alt="email-icon" />
+                <img src="../images/icon-mail.svg" alt="email-icon" />
                 <div>
                     <h6>Email :</h6>
                     <p>contact@dentics.fr</p>
                 </div>
             </div>
             <div class="contact__card">
-                <img src="images/icon-phone.svg" alt="phone-icon" />
+                <img src="../images/icon-phone.svg" alt="phone-icon" />
                 <div>
                     <h6>Téléphone :</h6>
                     <p>(+33) 699-999999</p>
@@ -25,7 +25,9 @@
     </div>
 
     <!-- FORMULAIRE DE CONTACT -->
-    <form method="POST" action="index.php?page=home#contact">
+    <form method="POST" action="home.php#contact">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
         <label for="nom">Nom et Prénom :</label>
         <input type="text" name="nom" id="nom" placeholder="Entrez votre nom" required />
 

@@ -11,6 +11,8 @@
         <p>Connectez-vous pour gérer vos rendez-vous et suivis dentaires</p>
 
         <form action="index.php?page=login" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
             <div class="email-label">
                 <img src="images/icon-mail-login.png" alt="icon mail" />
                 <input type="email" name="email" id="email" placeholder="Entrez votre email" required />
@@ -27,13 +29,13 @@
         </form>
 
         <p>
-            Pas encore membre ? <a href="index.php?page=signup">Créez un compte</a>
+            Pas encore membre ? <a href="control/signup.php">Créez un compte</a>
         </p>
     </div>
 </section>
 
 <!-- SCRIPT JS -->
-<script src="/js/script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 

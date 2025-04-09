@@ -1,4 +1,17 @@
 <?php
+/**
+ * Class RendezVous
+ *
+ * Cette classe représente un rendez-vous chez un dentiste.
+ * Elle contient les informations nécessaires pour identifier un rendez-vous,
+ * telles que le nom du patient, l'email, le téléphone, l'identifiant du dentiste,
+ * la date et l'heure du rendez-vous, ainsi que le statut du rendez-vous.
+ *
+ * @package Dentics\Classe
+ * @auteur     Chiheb Kebbas
+ * 
+ */
+
 namespace Dentics\Classe;
 
 class RendezVous
