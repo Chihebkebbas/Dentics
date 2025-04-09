@@ -2,7 +2,7 @@
   <main>
 
         <p id="welcome-msg" style="text-align:center; background:#fff; padding:10px; font-weight:bold; transition: opacity 1s;">
-            Bienvenue, <?= htmlspecialchars($_COOKIE['login'] ?? 'inconnu') ?> !
+            Bienvenue, <?= htmlspecialchars($_COOKIE['login'] ?? 'Incconu (Cookies pas accetées)') ?> !
         </p>
 
         <!-- HERO -->
@@ -127,16 +127,12 @@
         window.addEventListener('DOMContentLoaded', () => {
         const msg = document.getElementById('welcome-msg');
         if (msg) {
-            console.log("Message détecté, lancement du masquage...");
             setTimeout(() => {
             msg.style.opacity = '0'; // effet fondu
             setTimeout(() => {
                 msg.remove(); // supprime le message après fondu
-                console.log("Message supprimé");
             }, 1000); // attendre la fin de la transition
             }, 5000); // attendre 5 secondes
-        } else {
-            console.log("Aucun élément #welcome-msg trouvé.");
         }
         });
     </script>

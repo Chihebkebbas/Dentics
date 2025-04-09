@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/nfs/data01/data/uapv25/uapv2500228/public_html/css/signup.css" />
+    <link rel="stylesheet" href="../css/signup.css" />
     <title>Dentics - Sign Up</title>
     
 </head>
@@ -27,14 +27,14 @@
         <nav class="header__nav" id="header-nav">
             <ul>
                 <!-- On peut placer ici d’autres liens ou juste ceux version mobile -->
-                <li><a href="/nfs/data01/data/uapv25/uapv2500228/public_html/index.php?page=login" class="mobile-only">Connexion</a></li>
+                <li><a href="../index.php" class="mobile-only">Connexion</a></li>
                 <li><a href="signup.php" class="mobile-only">S'inscrire</a></li>
             </ul>
         </nav>
 
         <!-- Boutons (Sign Up / Login) version desktop -->
         <div class="header__btns" id="header-btn">
-            <a href="/nfs/data01/data/uapv25/uapv2500228/public_html/index.php?page=login" class="sign-up">Connexion</a>
+            <a href="../index.php?page=login" class="sign-up">Connexion</a>
             <a href="signup.php" class="login">S'inscrire</a>
         </div>
 
