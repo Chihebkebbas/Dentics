@@ -19,14 +19,14 @@ if (!isset($_SESSION['utilisateur'])) {
     exit;
 }
 
-// Accepter les cookies 
+// Savoir si l’utilisateur a accepté les cookies
 if (isset($_GET['accept-cookies'])) {
-    setcookie('cookies_acceptes', 'oui', time() + 365 * 24 * 60 * 60); // 1 an
-    header('Location: ' . strtok($_SERVER["REQUEST_URI"], '?')); // Pour enlever ?accept-cookies
+    setcookie('cookies_acceptes', 'oui', time() + 3600); // 1h
+    header('Location: ' . strtok($_SERVER["REQUEST_URI"], '?')); 
     exit;
 }
 
-// cookie de login si accepté
+// cookie de login si accepté : mémoriser l’email de l’utilisateur connecté
 if (isset($_SESSION['utilisateur']) && isset($_COOKIE['cookies_acceptes'])) {
     setcookie('login', $_SESSION['utilisateur']['email'], time() + 3600); // 1h
 }

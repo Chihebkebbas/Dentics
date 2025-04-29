@@ -11,9 +11,8 @@
 session_start();
 
 // Supprimer les cookies en les anti-datant
-setcookie('cookies_acceptes', '', time() - 3600);
-setcookie('login', '', time() - 3600);
-
+setcookie('cookies_acceptes', '', time() - 3600, "/");
+setcookie('login', '', time() - 3600, "/");
 
 session_unset();
 session_destroy();

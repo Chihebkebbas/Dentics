@@ -118,7 +118,7 @@
 
     <?php if (!isset($_COOKIE['cookies_acceptes'])): ?>
     <div style="position: fixed; bottom: 0; width: 100%; background: #eee; padding: 10px; text-align: center; z-index: 1000;">
-        Ce site utilise des cookies pour améliorer votre expérience.
+    Ce site utilise des cookies pour améliorer votre expérience.
         <a href="?accept-cookies=1" style="background: #1376F8; padding: 5px 10px; border-radius: 4px; color: white; text-decoration: none;">Accepter</a>
     </div>
     <?php endif; ?>

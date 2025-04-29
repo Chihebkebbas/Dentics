@@ -1,0 +1,5 @@
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ /~uapv2500228/portfolio/ [R=301,L]
